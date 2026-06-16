@@ -1,0 +1,44 @@
+package base;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+import org.openqa.selenium.WebDriver;
+
+public class Base {
+    
+    // 1. ThreadLocal container guarantees each thread gets its own completely isolated instance of WebDriver
+    private static ThreadLocal<WebDriver> dr = new ThreadLocal<>();
+
+    // 2. Updated to pass the incoming driver into our thread-safe wrapper
+    public static void setDriver(WebDriver driver) {
+        dr.set(driver);
+    }
+
+    // 3. Updated to retrieve the clean instance unique to the active running thread
+    public static WebDriver getDriver() {
+        return dr.get();
+    }
+
+    // 4. Added a removal method to clean up thread memory leaks after tests finish
+    public static void unloadDriver() {
+        dr.remove();
+    }
+
+    public String getUrl() throws Exception {
+        Properties prop = new Properties();
+        prop.load(new FileInputStream("C:\\Users\\Rakshit.Porwal\\WorkSpace2\\TrainingProject\\src\\main\\java\\data.properties"));
+        return prop.getProperty("url");
+    }
+
+    public String getFrameworkUrl() throws Exception {
+        Properties prop = new Properties();
+        prop.load(new FileInputStream("C:\\Users\\Rakshit.Porwal\\WorkSpace2\\TrainingProject\\src\\main\\java\\data.properties"));
+        return prop.getProperty("frameworkUrl");
+    }
+
+    public String getBrowser() throws Exception {
+        Properties prop = new Properties();
+        prop.load(new FileInputStream("C:\\Users\\Rakshit.Porwal\\WorkSpace2\\TrainingProject\\src\\main\\java\\data.properties"));
+        return prop.getProperty("browser");
+    }
+}
