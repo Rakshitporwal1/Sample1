@@ -1,0 +1,27 @@
+import static org.hamcrest.Matchers.*;
+//import static io.restassured.matcher.RestAssuredMatchers.*;
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+
+public class Program6_Assertion {
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        RestAssured.baseURI="https://www.engineerdiaries.com/";
+        
+        given()
+        .when().get("api-test/users/1028")
+        .then().statusCode(200);
+
+        given()
+        .when().get("api-test/users/1028")
+        .then()
+        .header("Content-Type", "application/json");
+
+        given()
+        .when().get("api-test/users/1115")
+        .then().time(lessThan(5000L));
+
+        given()
+        .when().get("api-test/users/1115")
+    }
+}
