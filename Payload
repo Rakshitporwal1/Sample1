@@ -1,0 +1,20 @@
+package day1;
+
+public class PayloadData {
+    static String getData()
+    {
+        return "{\r\n"
+            + "  \"name\": \"ritika\",\r\n"
+            + "  \"email\": \"ritika@gmail.com\",\r\n"
+            + "  \"password\": \"123456\",\r\n"
+            + "  \"location\": [\r\n"
+            + "    \"Delhi\"\r\n"
+            + "  ],\r\n"
+            + "  \"biometric\": {\r\n"
+            + "    \"height\": 160,\r\n"
+            + "    \"weight\": 60\r\n"
+            + "  },\r\n"
+            + "  \"type\": \"User\"\r\n"
+            + "}";
+    }
+}
