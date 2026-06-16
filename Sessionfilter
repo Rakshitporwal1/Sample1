@@ -1,0 +1,22 @@
+public class Program_SessionFilter {
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        RestAssured.baseURI="https://www.engineerdiaries.com/api/testFramework";
+        SessionFilter session=new SessionFilter();
+        Response res=given().header("Content-Type","application/json")
+            .body("{\r\n"
+                + " \"email\": \"admin\",\r\n"
+                + " \"password\": \"admin123\"\r\n"
+                + "}")
+            .filter(session)
+            .when().post("/login");
+
+        given()
+            .filter(session)
+            .when().get("getAll")
+            .then().log().all();
+        // System.out.println("*******"+res.getSessionId());
+        //System.out.println(res.getSessionId()+"***********");
+        //.then().filter(session)
+    }
+}
