@@ -1,0 +1,21 @@
+package day1;
+
+import static io.restassured.RestAssured.given;
+
+public class Program1_GET {
+
+    public static void main(String[] args) {
+
+        RestAssured.baseURI=
+                "https://www.engineerdiaries.com/";
+        given()
+        .header("Connection", "keep-alive")
+        .when().get("/api-test/users/1076")
+        .then().log().all();
+
+        /*given()
+        .header("Connection", "keep-alive")
+        .when().get("/api-test/users/1028")
+        .then().log().all();*/
+    }
+}
