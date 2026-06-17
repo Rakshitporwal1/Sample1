@@ -1,0 +1,9 @@
+{
+  "platformName": "Android",
+  "appium:automationName": "UiAutomator2",
+  "appium:udid": "172.20.10.3:34917",
+  "appium:app": "D:\\eclipse-workspace\\appiumcat\\src\\main\\java\\resources\\ApiDemos-debug.apk",
+  "platformName": "android",
+  "appium:deviceName": "OnePlus Nord CE 2",
+  "appium:automationName": "UIAutomator2"
+}
