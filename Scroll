@@ -1,0 +1,17 @@
+public static void main(String[] args) throws Exception {
+    // TODO Auto-generated method stub
+    AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
+    service.start();
+    UiAutomator2Options opt=new UiAutomator2Options();
+    opt.setDeviceName("CATDevice");
+    opt.setApp("C:\\Users\\Priyanka Arora\\eclipse-workspace\\appiumcat"
+        + "\\src\\main\\java\\resources\\ApiDemos-debug.apk");
+
+    AndroidDriver driver=new AndroidDriver(new URL("http://127.0.0.1:4723"),opt);
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Views\"]")).click();
+    Thread.sleep(2000);
+
+    driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector())."
+        + "scrollIntoView(new UiSelector().text(\"Picker\"));"));
+}
