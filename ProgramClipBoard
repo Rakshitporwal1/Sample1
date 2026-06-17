@@ -1,0 +1,19 @@
+AndroidDriver driver=new AndroidDriver(new URL("http://127.0.0.1:4723"),opt);
+Thread.sleep(2000);
+driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Views\"]")).click();
+Thread.sleep(2000);
+((HasClipboard)driver).setClipboardText("acorn");
+Thread.sleep(5000);
+driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector())."
+    + "scrollIntoView(new UiSelector().text(\"Search View\"));")).click();
+/*driver.findElement(By.xpath(
+"//android.widget.TextView[@content-desc=\"Search View\"]")).click();*/
+Thread.sleep(2000);
+driver.findElement(By.xpath(
+"//android.widget.TextView[@content-desc=\"Filter\"]")).click();
+Thread.sleep(2000);
+driver.findElement(By.xpath(
+"//android.widget.EditText[@resource-id=\"android:id/search_src_text\"]"))
+.sendKeys(((HasClipboard)driver).getClipboardText());
+Thread.sleep(2000);
+Thread.sleep(12000);
