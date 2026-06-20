@@ -1,0 +1,8 @@
+String connectionUrl = "jdbc:sqlserver://localhost:1433;" +
+"instanceName=DESKTOP-A54I2S0\\SQLEXPRESS01;"
++ "databaseName=coforge_nov26;" +
+"integratedSecurity=true;"
++ "encrypt=false;"
++ "trustServerCertificate=true;";
+
+Connection conn=DriverManager.getConnection(connectionUrl);
