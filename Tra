@@ -1,0 +1,11 @@
+BEGIN TRANSACTION;
+UPDATE Student SET name = 'Infosys' WHERE id=3;
+Select * from student;
+SAVE TRANSACTION Save1;
+
+UPDATE Student SET name = 'HCL' WHERE id=3;
+Select * from student;
+ROLLBACK TRANSACTION Save1;
+Select * from student;
+-- Only rolls back second update
+COMMIT;
