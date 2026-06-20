@@ -1,0 +1,18 @@
+String connectionUrl = "jdbc:sqlserver://localhost:1433;" +
+    "instanceName=LP-TZD-j;" +
+    "databaseName=coforge_nov26;" +
+    "user=user1;password=Coforge12345" +
+    "integratedSecurity=false;" +
+    "encrypt=true;" +
+    "trustServerCertificate=true;";
+
+Connection conn = DriverManager.getConnection(connectionUrl);
+String query = "select * from student";
+Statement stmt = con.createStatement();
+ResultSet result = stmt.executeQuery(query);
+
+while(result.next())
+{
+    System.out.print(result.getInt("id"));
+    System.out.println(" " + result.getString("name"));
+}
