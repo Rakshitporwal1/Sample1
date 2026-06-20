@@ -1,0 +1,9 @@
+create table finaldata (total int default 0);
+
+CREATE TRIGGER trg_InsertStudent
+ON Student
+AFTER INSERT
+AS
+BEGIN
+    update finaldata set total=(select count (*) from student);
+END;
