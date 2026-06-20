@@ -1,0 +1,13 @@
+DECLARE @name VARCHAR(50);
+
+DECLARE student_cursor CURSOR FOR
+SELECT Name FROM Student;
+
+OPEN student_cursor;
+FETCH NEXT FROM student_cursor INTO @name;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    PRINT @name;
+    FETCH NEXT FROM student_cursor INTO @name;
+END
